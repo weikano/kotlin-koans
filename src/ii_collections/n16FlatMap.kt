@@ -9,10 +9,21 @@ fun example() {
 
 val Customer.orderedProducts: Set<Product> get() {
     // Return all products this customer has ordered
-    todoCollectionTask()
+//    todoCollectionTask()
+    var products = setOf<Product>()
+    for (order in orders) {
+        products += order.products
+    }
+    return products
 }
 
 val Shop.allOrderedProducts: Set<Product> get() {
+    var products = setOf<Product>()
+    for (customer in customers) {
+        for (order in customer.orders) {
+            products+=order.products
+        }
+    }
+    return products
     // Return all products that were ordered by at least one customer
-    todoCollectionTask()
 }
