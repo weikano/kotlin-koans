@@ -21,5 +21,5 @@ class N31InvokeKtTest {
     }
 
     operator fun Invokable.invoke(): Nothing = todoTask31()
-    fun Invokable.getNumberOfInvocations(): Nothing = todoTask31()
+    private fun Invokable.getNumberOfInvocations() : Int = count
 }
